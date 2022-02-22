@@ -11,4 +11,6 @@ VALUES
 (0, "Bitcoin", "BTC", NULL),
 (1, "Ethereum", "ETH", NULL),
 (2, "Solana", "SOL", NULL),
-(3, "Near", "NEAR", NULL);
+(3, "Near", "NEAR", NULL),
+(4, "Helium", "HNT", NULL), 
+(5, "Stacks", "STX", NULL);
