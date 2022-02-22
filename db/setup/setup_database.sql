@@ -1,0 +1,3 @@
+CREATE DATABASE data_pow;
+
+CREATE USER 'data'@'%' IDENTIFIED BY 'D@ta_P455w0Rd';
