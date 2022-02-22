@@ -15,4 +15,4 @@ VALUES
 (5, "Stacks", "STX"), 
 (6, "Litecoin", "LTC"),
 (7, "Dogecoin", "DOGE"),
-(8, "Bitcoin Cash", "BCH";
+(8, "Bitcoin Cash", "BCH");
