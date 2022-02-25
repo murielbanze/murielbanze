@@ -38,14 +38,13 @@ VALUES
 (25, "Binance USD",	"BUSD",  NULL, NULL, NULL, NULL),
 (26, "Decentralized Social", "DESO",  NULL, NULL, NULL, NULL),
 (27, "Bitcoin",	"BTC",  NULL, NULL, NULL, NULL),
-(29, "Bitcoin Cash", "BCH",  NULL, NULL, NULL, NULL),
-(30, "Bitcoin SV", "BSV",  NULL, NULL, NULL, NULL),
-(31, "Ethereum", "ETH",NULL, NULL, NULL, NULL),
-(32, "Solana", "SOL", NULL, NULL, NULL, NULL),
-(33, "Near", "NEAR", NULL, NULL, NULL, NULL),
-(34, "Helium", "HNT", NULL, NULL, NULL, NULL),
-(35, "Stacks", "STX", NULL, NULL, NULL, NULL),
-(36, "Litecoin", "LTC", NULL, NULL, NULL, NULL),
-(37, "Dogecoin", "DOGE", NULL, NULL, NULL, NULL),
-(38, "Bitcoin Cash", "BCH", NULL, NULL, NULL, NULL);
+(28, "Bitcoin Cash", "BCH",  NULL, NULL, NULL, NULL),
+(29, "Bitcoin SV", "BSV",  NULL, NULL, NULL, NULL),
+(30, "Ethereum", "ETH",NULL, NULL, NULL, NULL),
+(31, "Solana", "SOL", NULL, NULL, NULL, NULL),
+(32, "Near", "NEAR", NULL, NULL, NULL, NULL),
+(33 "Helium", "HNT", NULL, NULL, NULL, NULL),
+(34, "Stacks", "STX", NULL, NULL, NULL, NULL),
+(35, "Litecoin", "LTC", NULL, NULL, NULL, NULL),
+(36, "Dogecoin", "DOGE", NULL, NULL, NULL, NULL);
 
