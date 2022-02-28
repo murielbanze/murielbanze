@@ -1,1 +1,0 @@
--- This is an empty sql file for the flyway baseline
