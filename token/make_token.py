@@ -17,7 +17,7 @@ DATABASE = json.loads(os.getenv('TOKEN_SCHEMA_CONNECT'))
 NEW_TOKENS = {
     'Dogecoin': 'DOGE'
 }
-
+ 
 #########################
 #########################
 #########################
@@ -103,45 +103,36 @@ def add_new_tokens():
 TOKEN = add_new_tokens()
 
 def create_token_table():
-    try:
-        connection = sql.connect(host=DATABASE['host'], password= DATABASE['password'], user=DATABASE['user']) 
-        cursor = connection.cursor()
-        cursor.execute('CREATE DATABASE IF NOT EXISTS token')
-        cursor.execute('USE token')
-        cursor.execute(''' CREATE TABLE token (
-            token_id INT,
-            token_name VARCHAR(256) NOT NULL,
-            token_symbol VARCHAR(12) NOT NULL,
-            ethereum_contract_hash NVARCHAR(256),
-            polygon_contract_hash NVARCHAR(256),
-            avalanche_contract_hash NVARCHAR(256),
-            solana_contract_hash NVARCHAR(256),
-            circulating_supply DECIMAL(45,25),
-            total_supply DECIMAL(45,25),
-            max_supply DECIMAL(45,25)) ''')
+    """     try: """
+    connection = sql.connect(host= os.getenv('DEV_DB_HOST'), password= os.getenv('DEV_DB_PASSWORD'), user= os.getenv('DEV_DB_USERNAME')) 
+    cursor = connection.cursor()
+    cursor.execute('CREATE DATABASE IF NOT EXISTS Token')
+    cursor.execute('USE Token')
 
-        array = TOKEN.values.tolist()
-        placeholders = ', '.join(['%s'] * len(TOKEN.columns))
-        columns = ', '.join([col for col in list(TOKEN.columns.values)])
-        statement = "INSERT INTO token ( %s ) VALUES ( %s )" % (columns, placeholders)
-        cursor.executemany(statement, array)
-        connection.commit()
-    except pymysql.err.ProgrammingError:
-        print('error')
-        pass 
+
+    array = TOKEN.values.tolist()
+    placeholders = ', '.join(['%s'] * len(TOKEN.columns))
+    columns = ', '.join([col for col in list(TOKEN.columns.values)])
+    statement = "INSERT INTO token ( %s ) VALUES ( %s )" % (columns, placeholders)
+    cursor.executemany(statement, array)
+    connection.commit()
     connection.autocommit=True
     cursor.close()
     connection.close()
 
+"""     except pymysql.err.ProgrammingError:
+        print('error')
+        pass  """
+
 def zipinsert(type, value, symbol, cur, con):
-    statement = """UPDATE token.token SET {} = '{}' WHERE token_symbol = '{}';""". format(type, value, symbol)
+    statement = """UPDATE Token.token SET {} = '{}' WHERE token_symbol = '{}';""". format(type, value, symbol)
     cur.execute(statement)
     con.commit()
 
 def insert_supply_info(token_data):
     zippeddata = zip(token_data['token_symbol'], token_data['circulating_supply'], token_data['total_supply'], token_data['max_supply'])
 
-    connection = sql.connect(host=DATABASE['host'], password= DATABASE['password'], user=DATABASE['user']) 
+    connection = sql.connect(host=os.getenv('DEV_DB_HOST'), password= os.getenv('DEV_DB_PASSWORD'), user=os.getenv('DEV_DB_USERNAME')) 
     cursor = connection.cursor()
 
     try:
@@ -161,7 +152,7 @@ def insert_supply_info(token_data):
 def insert_contract_hashes(token_data):
     zippeddata = zip(token_data['token_symbol'], token_data['ethereum_contract_hash'], token_data['polygon_contract_hash'], token_data['avalanche_contract_hash'], token_data['solana_contract_hash'])
 
-    connection = sql.connect(host=DATABASE['host'], password= DATABASE['password'], user=DATABASE['user']) 
+    connection = sql.connect(host=os.getenv('DEV_DB_HOST'), password= os.getenv('DEV_DB_PASSWORD'), user=os.getenv('DEV_DB_USERNAME')) 
     cursor = connection.cursor()
 
     try:
