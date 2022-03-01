@@ -14,6 +14,7 @@ DATABASE = json.loads(os.getenv('TOKEN_SCHEMA_CONNECT'))
 #########################
 
 
+
 # token_name / token_symbol
 NEW_TOKENS = {
     'Dogecoin': 'DOGE'
