@@ -29,4 +29,4 @@ flyway {
 	baselineOnMigrate = true
 	schemas = arrayOf("Token")
 	locations = arrayOf("filesystem:${project.projectDir}/token/migrations")
-} 
+}
