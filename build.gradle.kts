@@ -28,5 +28,5 @@ flyway {
     password = System.getenv("DATA_DB_PASSWORD")
 	baselineOnMigrate = true
 	schemas = arrayOf("stakerewards")
-	locations = arrayOf("filesystem:${project.projectDir}/StakingAccounting/migrations")
+	locations = arrayOf("filesystem:${project.projectDir}/Accounting/migrations")
 }
