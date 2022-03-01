@@ -29,4 +29,4 @@ flyway {
 	baselineOnMigrate = true
 	schemas = arrayOf("stakerewards")
 	locations = arrayOf("filesystem:${project.projectDir}/StakingAccounting/migrations")
-}
+} 

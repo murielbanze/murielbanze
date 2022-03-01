@@ -22,11 +22,11 @@ dependencies {
 
  // for use with a local sql instance.
 flyway {
-	url = "jdbc:mysql://${System.getenv("DATA_DB_URL")}:3306/stakerewards?useSSL=false" // for local
+	url = "jdbc:mysql://${System.getenv("DEV_DB_HOST")}:3306/Token?useSSL=false" // for local
   //url = "jdbc:mysql://${System.getenv("DATA_DB_URL")}:3306/data?useSSL=false" // for cloud
-    user = System.getenv("DATA_DB_USERNAME")
-    password = System.getenv("DATA_DB_PASSWORD")
+    user = System.getenv("DEV_DB_USERNAME")
+    password = System.getenv("DEV_DB_PASSWORD")
 	baselineOnMigrate = true
-	schemas = arrayOf("stakerewards")
-	locations = arrayOf("filesystem:${project.projectDir}/Accounting/migrations")
-} 
+	schemas = arrayOf("Token")
+	locations = arrayOf("filesystem:${project.projectDir}/token/migrations")
+}    
